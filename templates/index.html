@@ -1,9 +1,64 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Wordle</title>
+    <title>Luke's Wordle</title>
   </head>
   <body>
-    <p>Testing</p>
+    <!-- CSS link -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <div id="game-container">
+      <!-- Header (ie. title, dark mode switch) -->
+      <div id="header-row">
+        <span>Wordle</span>
+        <span id="dark-mode-toggle">
+          <label for="dark-switch">Dark Mode: </label>
+          <input type="checkbox" id="dark-switch" checked>
+        </span>
+      </div>
+
+      <!-- Row container -->
+      <div id="rows-container">
+        <div id="row-0">
+          <span class="tile"></span>
+          <span class="tile"></span>
+          <span class="tile"></span>
+          <span class="tile"></span>
+          <span class="tile"></span>
+        </div>
+        <div id="row-1">
+          <span class="tile"></span>
+          <span class="tile"></span>
+          <span class="tile"></span>
+          <span class="tile"></span>
+          <span class="tile"></span>
+        </div>
+        <div id="row-2">
+          <span class="tile"></span>
+          <span class="tile"></span>
+          <span class="tile"></span>
+          <span class="tile"></span>
+          <span class="tile"></span>
+        </div>
+        <div id="row-3">
+          <span class="tile"></span>
+          <span class="tile"></span>
+          <span class="tile"></span>
+          <span class="tile"></span>
+          <span class="tile"></span>
+        </div>
+        <div id="row-4">
+          <span class="tile"></span>
+          <span class="tile"></span>
+          <span class="tile"></span>
+          <span class="tile"></span>
+          <span class="tile"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- External script: use the variable -->
+    <script src="{{ url_for('static', filename='dark_mode.js') }}"></script>
+    
   </body>
 </html>
