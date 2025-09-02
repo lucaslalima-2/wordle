@@ -9,16 +9,18 @@ document.addEventListener('keydown', (event) => {
 
   // Only allow letters A-Z
   if (/^[a-zA-Z]$/.test(key) && current_tile < 5) {
-    // console.log("Placing in: ", current_row, current_tile);
+    // console.log("Placing in: ", current_row, current_tile); // debug
     tile.textContent = key.toUpperCase();
+    tile.classList.add("occupied");
     current_tile++;
   }; // if
 
   // Handle backspace
   if (key === 'Backspace' && current_tile > 0) {
     current_tile--; // go back one
-    // console.log("Deleting: ", current_row, current_tile);
+    // console.log("Deleting: ", current_row, current_tile); // debug
     const tile = row.children[current_tile];
+    tile.classList.remove("occupied");
     tile.textContent = '';
   } // if
 

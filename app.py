@@ -1,6 +1,6 @@
 # Libraries
 import argparse, threading
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 # Functions
 from src.open_browser import open_browser
@@ -17,6 +17,14 @@ app = Flask(__name__)
 @app.route("/")
 def index():
 	return render_template("index.html")
+
+# Submission
+@app.route("/submit", methods=["POST"])
+def submit():
+	data = request.get_json()
+	word = data.get("word", "")
+	if not is_valid:
+		return jsonify({"status": "fail", "msg": "Too few letters"})
 
 # --- Main function ---
 def main():
