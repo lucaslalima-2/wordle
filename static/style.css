@@ -1,0 +1,53 @@
+body {
+  background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.dark-mode .tile {
+  background-color: #333;
+  border-color: #666;
+}
+
+#game-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  width: 400px;
+}
+
+#header-row {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  width: 100%;
+}
+
+#header-row span:first-child {
+  flex-grow: 1;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding-left: 100px;
+  text-align: center;
+}
+
+.tile {
+  background-color: #fff;
+  border: 2px solid #ccc;
+  display: inline-block;
+  height: 50px;
+  font-size: 2em;
+  line-height: 50px;
+  margin: 5px;
+  text-align: center;
+  vertical-align: middle;
+  width: 50px;
+}
