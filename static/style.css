@@ -1,6 +1,7 @@
 body {
   background-color: #ffffff;
   color: #000000;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   transition: background-color 0.3s, color 0.3s;
 }
 
@@ -37,10 +38,30 @@ body {
   width: 100%;
 }
 
-#header-row span:first-child {
+#title {
   flex-grow: 1;
   font-size: 1.5em;
   font-weight: bold;
   padding-left: 100px;
   text-align: center;
+}
+
+#dark-mode-toggle {
+  border: 2px solid #333;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 12px;
+  margin-right: 27px;
+  padding: 2px 2px;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+#dark-switch {
+  display: none;
+}
+
+#dark-switch:checked + #dark-mode-label {
+  color: #fff;
 }
