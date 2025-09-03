@@ -38,16 +38,3 @@ body {
   padding-left: 100px;
   text-align: center;
 }
-
-.tile {
-  background-color: #fff;
-  border: 2px solid #ccc;
-  display: inline-block;
-  height: 50px;
-  font-size: 2em;
-  line-height: 50px;
-  margin: 5px;
-  text-align: center;
-  vertical-align: middle;
-  width: 50px;
-}
