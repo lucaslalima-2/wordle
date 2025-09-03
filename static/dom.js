@@ -52,7 +52,7 @@ document.addEventListener('keydown', (event) => {
         current_row++;
         current_tile = 0;
       } else {
-        console.log("Failed submission")
+        show_popup(data["msg"]);
       }; // if-else
     }); // then
   } // if
