@@ -1,6 +1,6 @@
 # Libraries
-import argparse, threading
-from flask import Flask, render_template, request
+import argparse, os, threading
+from flask import Flask, render_template, request, jsonify, session
 
 # Functions
 from src.open_browser import open_browser
@@ -12,6 +12,7 @@ word = ""
 
 # Application intialization and thread start
 app = Flask(__name__)
+app.secret_key = os.environ.get("DEV_SECRET_KEY")
 
 # --- App routing ---
 @app.route("/")
@@ -21,11 +22,16 @@ def index():
 # Submission
 @app.route("/submit", methods=["POST"])
 def submit():
-	data = request.get_json()
-	word = data.get("word", "")
-	if not is_valid:
-		return jsonify({"status": "fail", "msg": "Too few letters"})
+	word = request.get_json().get("word", "").lower()
+	guesses = session.get("guesses", [])
 
+	if word in guesses:
+		return jsonify({"status": "fail", "msg": "Already guessed"})
+	else:
+		guesses.append(word)
+		session["guesses"] = guesses
+		return jsonify({"status": "success"})
+	
 # --- Main function ---
 def main():
 	# Handles input

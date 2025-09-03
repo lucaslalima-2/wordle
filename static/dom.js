@@ -24,9 +24,31 @@ document.addEventListener('keydown', (event) => {
     tile.textContent = '';
   } // if
 
-  // Optional: handle Enter to move to next row
+  // Enter key behavior
   if (key === 'Enter' && current_tile === 5) {
-    current_row++;
-    current_tile = 0;
+    // Builds word to submit
+    const row = document.getElementById(`row-${current_row}`);
+    let word = '';
+    for(let i=0; i<5; i++){
+      word += row.children[i].textContent;
+    }; // for
+
+    console.log("word: ", word)
+ 
+    // Send word to backend /submit
+    fetch("/submit", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({word: word})
+    }).then(response => response.json())
+    .then(data => {
+      console.log(data)
+      if(data["status"] == "success") {
+        current_row++;
+        current_tile = 0;
+      } else {
+        console.log("Failed submission")
+      }; // if-else
+    }); // then
   } // if
 }); // add event listener
