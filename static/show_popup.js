@@ -3,7 +3,7 @@ const popup_container = document.getElementById("popup-container");
 const popup_message = document.getElementById("popup-message")
 
 // Flashes pop up with input message
-function show_popup(msg) {
+function show_popup(msg, endgame=false) {
   // Show
   popup_message.textContent = msg;
 
@@ -12,7 +12,8 @@ function show_popup(msg) {
   void popup_container.offsetWidth;
 
   // Show and animate
-  popup_container.classList.add("animate");
+  if(!endgame) { popup_container.classList.add("animate");}
+  else { popup_container.classList.add("animate_final");}
 
   // Removes animation class
   popup_container.addEventListener("animationend", () =>{

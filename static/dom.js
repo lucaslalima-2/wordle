@@ -48,10 +48,21 @@ document.addEventListener('keydown', (event) => {
       if(data["status"] == "success") {
         // Uses data["colors"] to set colors of different tiles
         setTileColors(data["colors"], row);
-        // Updates pointer
-        current_row++;
-        current_tile = 0;
+
+        // Checks win or loss
+        if (data["colors"].filter(item => item ==="green").length==5) {
+          // Win
+          show_popup("You won! \n Refresh to start a new game!", endgame=true);
+        } else if (current_row==4) {
+          // Lose
+          show_popup("You lose.\nRefresh page to start new game!", endgame=true);
+        } else {
+          // Midgame, update pointer
+          current_row++;
+          current_tile = 0;
+        } //if-elif-else
       } else {
+        // Invalid entry: too short, reused word, unapproved dictionary word
         show_popup(data["msg"]);
       }; // if-else
     }); // then
