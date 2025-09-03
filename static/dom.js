@@ -28,22 +28,20 @@ document.addEventListener('keydown', (event) => {
   if (key === 'Enter' && current_tile === 5) {
     // Builds word to submit
     const row = document.getElementById(`row-${current_row}`);
-    let word = '';
+    let guess = '';
     for(let i=0; i<5; i++){
-      word += row.children[i].textContent;
+      guess += row.children[i].textContent;
     }; // for
-
-    console.log("word: ", word)
  
     // Send word to backend /submit
     fetch("/submit", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({word: word})
+      body: JSON.stringify({guess: guess})
     }).then(response => response.json())
     .then(data => {
-      console.log(data)
       if(data["status"] == "success") {
+        // Updates pointer
         current_row++;
         current_tile = 0;
       } else {

@@ -5,12 +5,13 @@ from flask import Flask, render_template, request, jsonify, session
 # Functions
 from src.open_browser import open_browser
 from src.is_valid import is_valid
+from src.get_colors import get_colors
 
 # Variables
 dictionary_path = "./data/five_letter_words.txt"
 word_set = set()
 max_length = 5
-word = ""
+wordle = ""
 
 # Application intialization and thread start
 app = Flask(__name__)
@@ -25,28 +26,30 @@ def index():
 # Submission
 @app.route("/submit", methods=["POST"])
 def submit():
-	word = request.get_json().get("word", "").lower()
+	guess = request.get_json().get("guess", "").lower()
 	guesses = session.get("guesses", [])
-	if word in guesses:
+	if guess in guesses:
 		return jsonify({"status": "fail", "msg": "Already guessed"})
-	elif word not in word_set:
+	elif guess not in word_set:
 		return jsonify({"status": "fail", "msg": "Not a word"})
 	else:
-		guesses.append(word)
+		guesses.append(guess)
 		session["guesses"] = guesses
-		return jsonify({"status": "success"})
+		colors = get_colors(guess, wordle, max_length)
+		print(colors)
+		return jsonify({"status": "success", "colors": colors})
 	
 # --- Main function ---
 def main():
 	# Handles input
 	parser = argparse.ArgumentParser(description="Luke's Wordle")
-	parser.add_argument("-w", "--word", required=True, help="Daily wordle!")
+	parser.add_argument("-w", "--wordle", required=True, help="Daily wordle!")
 	args = parser.parse_args()
-	global word
-	word = vars(args)["word"].lower()
+	global wordle
+	wordle = vars(args)["wordle"].lower()
 
 	# Checks valid word
-	if not is_valid(word, max_length):
+	if not is_valid(wordle, max_length):
 		print(f"(E) draft.py -> Must provide word of 5 letters: {word}")
 		return
 
