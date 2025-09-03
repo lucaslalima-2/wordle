@@ -1,5 +1,5 @@
 # Libraries
-import argparse, os, threading
+import argparse, os, random, threading
 from flask import Flask, render_template, request, jsonify, session
 
 # Functions
@@ -42,21 +42,24 @@ def submit():
 def main():
 	# Handles input
 	parser = argparse.ArgumentParser(description="Luke's Wordle")
-	parser.add_argument("-w", "--wordle", required=True, help="Daily wordle!")
+	parser.add_argument("-w", "--wordle", help="Daily wordle!")
 	args = parser.parse_args()
-	global wordle
-	wordle = vars(args)["wordle"].lower()
-
-	# Checks valid word
-	if not is_valid(wordle, max_length):
-		print(f"(E) draft.py -> Must provide word of 5 letters: {word}")
-		return
 
 	# Loads dictionary
 	with open(dictionary_path, "r") as d:
 		for line in d:
 			w = line.strip().lower()
 			word_set.add(w)
+
+	# Picks random 5 letter word if none given
+	global wordle
+	if args.wordle: wordle = args.wordle.lower()
+	else: wordle = random.choice(list(word_set))
+
+	# Checks valid word
+	if not is_valid(wordle, max_length):
+		print(f"(E) draft.py -> Must provide word of 5 letters: {word}")
+		return
 
 	# Successful response
 	print("Happy Wordling! Starting game ...")
