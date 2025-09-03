@@ -36,7 +36,6 @@ def submit():
 		guesses.append(guess)
 		session["guesses"] = guesses
 		colors = get_colors(guess, wordle, max_length)
-		print(colors)
 		return jsonify({"status": "success", "colors": colors})
 	
 # --- Main function ---

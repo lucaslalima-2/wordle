@@ -6,6 +6,7 @@
   <body>
     <!-- CSS link -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='tile.css') }}">
 
     <div id="game-container">
       <!-- Header (ie. title, dark mode switch) -->
@@ -59,6 +60,7 @@
 
     <!-- External script: use the variable -->
     <script src="{{ url_for('static', filename='dark_mode.js') }}"></script>
+    <script src="{{ url_for('static', filename='set_tile_colors.js') }}"></script>
     <script src="{{ url_for('static', filename='dom.js') }}"></script>    
   </body>
 </html>

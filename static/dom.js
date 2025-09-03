@@ -41,6 +41,8 @@ document.addEventListener('keydown', (event) => {
     }).then(response => response.json())
     .then(data => {
       if(data["status"] == "success") {
+        // Uses data["colors"] to set colors of different tiles
+        setTileColors(data["colors"], row);
         // Updates pointer
         current_row++;
         current_tile = 0;
