@@ -1,6 +1,8 @@
 // Variables
 let current_row = 0;
 let current_tile = 0;
+const popup_container = document.getElementById("popup-container");
+const popup_message = document.getElementById("popup-message")
 
 document.addEventListener('keydown', (event) => {
   const key = event.key;
@@ -22,6 +24,13 @@ document.addEventListener('keydown', (event) => {
     const tile = row.children[current_tile];
     tile.classList.remove("occupied");
     tile.textContent = '';
+  } // if
+
+  // Enter key behavior if word is too short
+  if (key === "Enter" && current_tile < 5) {
+    console.log("Too few letters");
+    popup_message.textContent = "Too few letters";
+    popup_container.classList.remove("hidden")
   } // if
 
   // Enter key behavior

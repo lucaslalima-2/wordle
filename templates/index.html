@@ -7,6 +7,7 @@
     <!-- CSS link -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='tile.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='popup.css') }}">
 
     <div id="game-container">
       <!-- Header (ie. title, dark mode switch) -->
@@ -55,8 +56,13 @@
           <span class="tile"></span>
           <span class="tile"></span>
         </div>
+      </div> <!-- rows container-->
+
+      <div id="popup-container" class="hidden">
+        <span id="popup-message"></span>
       </div>
-    </div>
+
+    </div> <!-- game container -->
 
     <!-- External script: use the variable -->
     <script src="{{ url_for('static', filename='dark_mode.js') }}"></script>

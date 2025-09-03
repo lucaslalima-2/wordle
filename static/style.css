@@ -14,12 +14,17 @@ body {
   border-color: #666;
 }
 
+.hidden {
+  display: none;
+}
+
 #game-container {
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
+  position: relative;
   width: 400px;
 }
 
