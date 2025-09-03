@@ -24,6 +24,11 @@ document.addEventListener('keydown', (event) => {
     tile.textContent = '';
   } // if
 
+  // Enter key behavior if word is too short
+  if (key === "Enter" && current_tile < 5) {
+    show_popup("Too few letters");
+  } // if
+
   // Enter key behavior
   if (key === 'Enter' && current_tile === 5) {
     // Builds word to submit
@@ -47,7 +52,7 @@ document.addEventListener('keydown', (event) => {
         current_row++;
         current_tile = 0;
       } else {
-        console.log("Failed submission")
+        show_popup(data["msg"]);
       }; // if-else
     }); // then
   } // if
