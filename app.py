@@ -20,11 +20,11 @@ app.secret_key = os.environ.get("DEV_SECRET_KEY")
 # --- App routing ---
 @app.route("/")
 def index():
-	session.pop("guesses", None) # Reset guesses on refresh ; for dev
+	session.pop("guesses", None)
 	return render_template("index.html")
 
 # Fetch new word
-@app.route("/new_game", methods=["GET"])
+@app.route("/reset_game", methods=["GET"])
 def new_game():
 	global wordle
 	wordle = random.choice(list(word_set))

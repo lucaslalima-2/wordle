@@ -117,12 +117,14 @@
     </div> <!-- game container -->
 
     <!-- External script: use the variable -->
+    <script src="{{ url_for('static', filename='reset_game.js') }}"></script>
+    <script src="{{ url_for('static', filename='handle_keydown.js') }}"></script>
     <script src="{{ url_for('static', filename='dark_mode.js') }}"></script>
     <script src="{{ url_for('static', filename='set_tile_colors.js') }}"></script>
     <script src="{{ url_for('static', filename='show_popup.js') }}"></script>
     <script src="{{ url_for('static', filename='end_game.js') }}"></script>
     <script src="{{ url_for('static', filename='new_game.js') }}"></script>
-    <script src="{{ url_for('static', filename='dom.js') }}"></script>
     <script src="{{ url_for('static', filename='keyboard.js') }}"></script>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
   </body>
 </html>
