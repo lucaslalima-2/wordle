@@ -12,19 +12,26 @@
   width: 50px;
 }
 
-.dark-mode .green {
-  background-color: rgba(8, 146, 8, 0.707);
-}
-
-.dark-mode .yellow {
-  background-color: rgba(255, 226, 41, 0.942);
-}
-
-.dark-mode .gray {
-  background-color: rgb(193, 192, 192);
-}
-
+/* Behavior */
 .tile.disabled {
   pointer-events: none;
   opacity: 0.3;
+}
+
+/* Dark-mode settings */
+.dark-mode .tile {
+  background-color: #333;
+  border-color: #666;
+}
+
+.tile.green {
+  background-color: rgba(8, 146, 8, 0.707);
+}
+
+.tile.yellow {
+  background-color: rgba(255, 226, 41, 0.942);
+}
+
+.tile.gray {
+  background-color: rgb(193, 192, 192);
 }
