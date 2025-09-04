@@ -55,7 +55,7 @@ function handleKeydown(event) {
           // Win
           show_popup("You won! \n Refresh to start a new game!", endgame=true);
           end_game();
-        } else if (current_row==4) {
+        } else if (current_row==5) {
           // Lose
           show_popup("You lose.\nRefresh page to start new game!", endgame=true);
           end_game();
