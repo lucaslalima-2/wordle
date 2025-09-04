@@ -2,7 +2,7 @@ function end_game() {
   // Remove key listener
   document.removeEventListener('keydown', handle_keydown);
 
-  // Optional: visually disable board
+  // Disable tiles
   document.querySelectorAll(".tile").forEach(tile => {
     tile.classList.add("disabled"); // Add a CSS class to gray out or lock tiles
   });

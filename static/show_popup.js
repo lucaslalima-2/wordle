@@ -5,7 +5,7 @@ const popup_message = document.getElementById("popup-message")
 // Flashes pop up with input message
 function show_popup(msg, endgame=false) {
   // Show
-  popup_message.textContent = msg;
+  popup_message.innerHTML = msg;
 
   // Reset animation if already applied
   popup_container.classList.remove("animate");
