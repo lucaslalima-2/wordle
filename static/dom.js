@@ -47,6 +47,9 @@ function handleKeydown(event) {
         // Uses data["colors"] to set colors of different tiles
         setTileColors(data["colors"], row);
 
+        // Updates keyboard
+        setKeyboardColors(data["guess"], data["colors"]);
+
         // Checks win or loss
         if (data["colors"].filter(item => item ==="green").length==5) {
           // Win
