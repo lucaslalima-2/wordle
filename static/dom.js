@@ -72,4 +72,15 @@ function handleKeydown(event) {
   } // if
 }; // add event listener
 
-document.addEventListener('keydown', handleKeydown); 
+// Sets keydown behavior
+document.addEventListener('keydown', handleKeydown);
+
+// Sets word
+fetch("/new_game", {
+  method: "GET",
+  headers: {"Content-Type": "application/json"}
+})
+.then(response => response.json())
+.then(data => {
+  console.log("New game initialized:", data);
+});

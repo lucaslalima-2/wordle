@@ -11,7 +11,7 @@ from src.get_colors import get_colors
 dictionary_path = "./data/five_letter_words.txt"
 word_set = set()
 max_length = 5
-wordle = ""
+wordle = None
 
 # Application intialization and thread start
 app = Flask(__name__)
@@ -22,6 +22,13 @@ app.secret_key = os.environ.get("DEV_SECRET_KEY")
 def index():
 	session.pop("guesses", None) # Reset guesses on refresh ; for dev
 	return render_template("index.html")
+
+# Fetch new word
+@app.route("/new_game", methods=["GET"])
+def new_game():
+	global wordle
+	wordle = random.choice(list(word_set))
+	return jsonify({"status": "new", "wordle": wordle})
 
 # Submission
 @app.route("/submit", methods=["POST"])
@@ -51,15 +58,13 @@ def main():
 			w = line.strip().lower()
 			word_set.add(w)
 
-	# Picks random 5 letter word if none given
+	# Sets wordle if provided
 	global wordle
-	if args.wordle: wordle = args.wordle.lower()
-	else: wordle = random.choice(list(word_set))
-
-	# Checks valid word
-	if not is_valid(wordle, max_length):
-		print(f"(E) draft.py -> Must provide word of 5 letters: {word}")
-		return
+	if args.wordle:
+		wordle = args.wordle.lower()
+		if not is_valid(wordle, max_length):
+			print(f"(E) draft.py -> Must provide word of 5 letters: {word}")
+			return
 
 	# Successful response
 	print("Happy Wordling! Starting game ...")
