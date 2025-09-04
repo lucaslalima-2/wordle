@@ -16,7 +16,7 @@ function reset_game() {
 
   // Reset keyboard colors
   document.querySelectorAll(".key").forEach(key => {
-    key.classList.remove("green", "yellow", "gray");
+    key.classList.remove("green", "yellow", "gray", "dark-gray");
     key.classList.add("gray");
     key.dataset.color = "gray";
   });
