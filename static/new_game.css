@@ -10,7 +10,7 @@
   opacity: 0;
   padding: 10px 20px;
   position: absolute;
-  top: 60%; /* Adjust this based on where you want it */
+  top: 62.5%; /* Adjust this based on where you want it */
   left: 50%;
   transform: translate(-50%, 0); /* Center horizontally */
   z-index: 900; /* Lower than popup-container (which is 1000) */

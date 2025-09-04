@@ -8,7 +8,7 @@ from src.is_valid import is_valid
 from src.get_colors import get_colors
 
 # Variables
-dictionary_path = "./data/five_letter_words.txt"
+dictionary_path = "./data/latest_five_letter_words.txt"
 word_set = set()
 max_length = 5
 wordle = None
@@ -43,7 +43,7 @@ def submit():
 		guesses.append(guess)
 		session["guesses"] = guesses
 		colors = get_colors(guess, wordle, max_length)
-		return jsonify({"status": "success", "guess": guess, "colors": colors})
+		return jsonify({"status": "success", "guess": guess, "colors": colors, "wordle": wordle})
 	
 # --- Main function ---
 def main():
@@ -55,6 +55,7 @@ def main():
 	# Loads dictionary
 	with open(dictionary_path, "r") as d:
 		for line in d:
+			if line[0] == "#": continue
 			w = line.strip().lower()
 			word_set.add(w)
 
