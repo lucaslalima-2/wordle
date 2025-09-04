@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='tile.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='popup.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='new_game.css') }}">
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='keyboard.css')}}">
 
     <div id="game-container">
       <!-- Header (ie. title, dark mode switch) -->
@@ -68,6 +68,44 @@
         <span id="new-game-button">New Game</span>
       </div>
 
+      <div id="keyboard-container">
+        <div class="keyboard-row" id="keyboard-row-1">
+          <button class="key" data-key="Q">Q</button>
+          <button class="key" data-key="W">W</button>
+          <button class="key" data-key="E">E</button>
+          <button class="key" data-key="R">R</button>
+          <button class="key" data-key="T">T</button>
+          <button class="key" data-key="Y">Y</button>
+          <button class="key" data-key="U">U</button>
+          <button class="key" data-key="I">I</button>
+          <button class="key" data-key="O">O</button>
+          <button class="key" data-key="P">P</button>
+        </div> <!--keyboard row 1-->
+
+        <div class="keyboard-row" id="keyboard-row-2">
+          <button class="key" data-key="A">A</button>
+          <button class="key" data-key="S">S</button>
+          <button class="key" data-key="D">D</button>
+          <button class="key" data-key="F">F</button>
+          <button class="key" data-key="G">G</button>
+          <button class="key" data-key="H">H</button>
+          <button class="key" data-key="J">J</button>
+          <button class="key" data-key="K">K</button>
+          <button class="key" data-key="L">L</button>
+        </div> <!--keyboard row 2-->
+
+        <div class="keyboard-row" id="keyboard-row-3">
+          <button class="key special" id="enter-key" data-key="Enter">Enter</button>
+          <button class="key" data-key="Z">Z</button>
+          <button class="key" data-key="X">X</button>
+          <button class="key" data-key="C">C</button>
+          <button class="key" data-key="V">V</button>
+          <button class="key" data-key="B">B</button>
+          <button class="key" data-key="N">N</button>
+          <button class="key" data-key="M">M</button>
+          <button class="key special" id="backspace-key" data-key="Backspace">←</button>
+        </div> <!--keyboard row 3-->
+      </div> <!--keyboard container-->
 
     </div> <!-- game container -->
 
@@ -78,5 +116,6 @@
     <script src="{{ url_for('static', filename='end_game.js') }}"></script>
     <script src="{{ url_for('static', filename='new_game.js') }}"></script>
     <script src="{{ url_for('static', filename='dom.js') }}"></script>
+    <script src="{{ url_for('static', filename='keyboard.js') }}"></script>
   </body>
 </html>

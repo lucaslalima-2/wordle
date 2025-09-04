@@ -1,0 +1,51 @@
+#keyboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  margin: 0 0;
+}
+
+.key {
+  padding: 10px 14px;
+  margin: 3px;
+  font-size: 1em;
+  border: none;
+  border-radius: 6px;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.key:hover {
+  background-color: #bbb;
+}
+
+.key.special {
+  background-color: rgb(193, 192, 192);
+  color: white;
+}
+
+.key.green {
+  background-color: rgba(8, 146, 8, 0.707);
+  color: white;
+}
+
+.key.yellow {
+  background-color: rgba(255, 226, 41, 0.942);
+  color: white;
+}
+
+.key.gray {
+  background-color: rgb(193, 192, 192);
+  color: white
+}
+
+.key.disable {
+  pointer-events: none;
+}
