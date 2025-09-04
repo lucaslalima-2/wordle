@@ -1,6 +1,6 @@
 function end_game() {
   // Remove key listener
-  document.removeEventListener('keydown', handleKeydown);
+  document.removeEventListener('keydown', handle_keydown);
 
   // Optional: visually disable board
   document.querySelectorAll(".tile").forEach(tile => {
