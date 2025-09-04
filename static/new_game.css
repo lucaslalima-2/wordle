@@ -1,0 +1,32 @@
+#new-game-container {
+  background-color: #4CAF50;
+  border-color: white;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  display: block; /* or use opacity: 0 if you want a fade-in effect */
+  font-weight: bold;
+  margin-top: 20px;
+  opacity: 0;
+  padding: 10px 20px;
+  position: absolute;
+  top: 60%; /* Adjust this based on where you want it */
+  left: 50%;
+  transform: translate(-50%, 0); /* Center horizontally */
+  z-index: 900; /* Lower than popup-container (which is 1000) */
+}
+
+@keyframes fade-in {
+  0% {
+    transform: translate(-50%, 50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, 0%);
+    opacity: 1;
+  }
+}
+
+#new-game-container.animate {
+  animation: fade-in 0.6s ease-out forwards;
+}
