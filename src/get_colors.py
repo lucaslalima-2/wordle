@@ -3,7 +3,7 @@ Fetches colors for the submission.
 This is built off the function check_guess from draft.py
 """
 
-def get_colors(guess, wordle, max_length):
+def get_colors(guess, wordle, max_length):    
     # Letter count dictionary
     count = {x:wordle.count(x) for x in wordle}
     
