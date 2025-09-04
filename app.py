@@ -66,7 +66,7 @@ def main():
 
 	# App running
 	threading.Timer(1.0, open_browser).start()
-	app.run(debug=True, use_reloader=False, port=5001)
+	app.run(debug=True, use_reloader=False, port=5000)
 	return
 
 # --- Anchor ---
