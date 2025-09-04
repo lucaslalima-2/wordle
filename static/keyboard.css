@@ -12,23 +12,24 @@
 }
 
 .key {
-  padding: 10px 14px;
-  margin: 3px;
-  font-size: 1em;
+  align-items: center;
+  background-color: #ffffff; 
+  box-sizing: border-box;
   border: none;
   border-radius: 6px;
-  background-color: #ffffff;
   cursor: pointer;
+  display: flex;
+  font-size: 1em;
+  height: 40px;
+  justify-content: center;
+  padding: 10px 14px;
+  margin: 3px;
   transition: background-color 0.2s ease;
+  width: 40px;
 }
 
 .key:hover {
   background-color: #bbb;
-}
-
-.key.special {
-  background-color: rgb(193, 192, 192);
-  color: white;
 }
 
 .key.green {
@@ -44,6 +45,16 @@
 .key.gray {
   background-color: rgb(193, 192, 192);
   color: white
+}
+
+.key.dark-gray {
+  background-color: #6b6b6b;
+}
+
+.key.special {
+  width: 60px;
+  background-color: white;
+  color: black;
 }
 
 .key.disable {

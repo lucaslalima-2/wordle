@@ -9,7 +9,7 @@ def get_colors(guess, wordle, max_length):
     
     # Return lists
     letters = list(guess)
-    colors = ["grey"] * max_length
+    colors = ["dark-gray"] * max_length
     
     # First pass: mark greens
     for i in range(max_length):
@@ -19,7 +19,7 @@ def get_colors(guess, wordle, max_length):
 
     # Second pass: mark yellows
     for i in range(0, max_length):
-        if colors[i] == "grey":
+        if colors[i] == "dark-gray":
             letter = letters[i]
             if count.get(letter, 0) > 0:
                 count[letter] -= 1
