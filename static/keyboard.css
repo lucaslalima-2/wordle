@@ -13,10 +13,10 @@
 
 .key {
   align-items: center;
-  background-color: #ffffff; 
   box-sizing: border-box;
   border: none;
   border-radius: 6px;
+  color: black;
   cursor: pointer;
   display: flex;
   font-size: 1em;
@@ -24,39 +24,54 @@
   justify-content: center;
   padding: 10px 14px;
   margin: 3px;
-  transition: background-color 0.2s ease;
   width: 40px;
-}
-
-.key:hover {
-  background-color: #bbb;
-}
-
-.key.green {
-  background-color: rgba(8, 146, 8, 0.707);
-  color: white;
-}
-
-.key.yellow {
-  background-color: rgba(255, 226, 41, 0.942);
-  color: white;
-}
-
-.key.gray {
-  background-color: rgb(193, 192, 192);
-  color: white
-}
-
-.key.dark-gray {
-  background-color: #6b6b6b;
 }
 
 .key.special {
   width: 60px;
-  background-color: white;
-  color: black;
+}
+
+/* Key behavior */
+.key:hover {
+  background-color: #bbb;
 }
 
 .key.disable {
   pointer-events: none;
 }
+
+ /* All mode settings */
+.key.green {
+  background-color: rgba(8, 146, 8, 0.707);
+}
+
+.key.yellow {
+  background-color: rgba(255, 226, 41, 0.942);
+}
+
+.key.dark-gray {
+  background-color: #6b6b6b;;
+}
+
+.key.gray {
+  background-color: rgb(214, 209, 209);
+}
+
+/* Dark-mode settings */
+.dark-mode .key {
+  color: white;
+}
+
+.dark-mode .key.gray {
+  background-color: rgb(193, 192, 192);
+}
+
+.dark-mode .key.dark-gray {
+  background-color: #6b6b6b;
+}
+
+.dark-mode .key.special {
+  color:white;
+}
+
+/* Light-mode settings */
