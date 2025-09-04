@@ -8,5 +8,5 @@ function end_game() {
   });
 
   // Introduce new game button
-  document.getElementById("new-game-container").classList.add("show");
+  document.getElementById("new-game-container").classList.add("animate");
 } // function
