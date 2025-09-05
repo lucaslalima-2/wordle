@@ -8,7 +8,9 @@ from src.is_valid import is_valid
 from src.get_colors import get_colors
 
 # Variables
-dictionary_path = "./data/latest_five_letter_words.txt"
+wordle_words = "./data/list_of_wordle_candidates.txt"
+all_words = "./data/acceptable_guesses.txt"
+wordle_set = set()
 word_set = set()
 max_length = 5
 wordle = None
@@ -27,7 +29,7 @@ def index():
 @app.route("/reset_game", methods=["GET"])
 def new_game():
 	global wordle
-	wordle = random.choice(list(word_set))
+	wordle = random.choice(list(wordle_set))
 	return jsonify({"status": "new", "wordle": wordle})
 
 # Submission
@@ -52,12 +54,18 @@ def main():
 	parser.add_argument("-w", "--wordle", help="Daily wordle!")
 	args = parser.parse_args()
 
-	# Loads dictionary
-	with open(dictionary_path, "r") as d:
+	# Loads guesses and wordle_words
+	with open(acceptable_guesses, "r") as d:
 		for line in d:
 			if line[0] == "#": continue
 			w = line.strip().lower()
 			word_set.add(w)
+
+	with open(wordle_words, "r") as d:
+		for line in d:
+			if line[0] == "#": continue
+			w = line.strip().lower()
+			wordle_set.add(w)
 
 	# Sets wordle if provided
 	global wordle
