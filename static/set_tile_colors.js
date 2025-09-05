@@ -1,6 +1,14 @@
 function setTileColors(colorslist, row){
   const tiles = row.querySelectorAll(".tile");
-  for (let i=0; i<colorslist.length; i++){
-    tiles[i].classList.add(colorslist[i]);
-  } // for
+
+  tiles.forEach((tile, i) => {
+    setTimeout(() => {
+      tile.classList.add("flip");
+
+      setTimeout(() => {
+        tile.classList.add(colorslist[i]); // apply color
+        tile.classList.remove("flip");
+      }, 700); // setTimeout Duration of flip
+    }, i * 200); // setTimeout Staggered delay between tiles
+  }); // foreach
 } // function

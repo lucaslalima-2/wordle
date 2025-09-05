@@ -8,8 +8,14 @@
   line-height: 50px;
   margin: 5px;
   text-align: center;
+  transition: transform 0.6s ease-in-out, background-color 0.3s ease;
+  transform-style: preserve-3d;
   vertical-align: middle;
   width: 50px;
+}
+
+.tile.flip {
+  transform: rotateX(90deg);
 }
 
 /* Behavior */
