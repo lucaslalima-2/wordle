@@ -14,6 +14,7 @@ wordle_set = set()
 word_set = set()
 max_length = 5
 wordle = None
+use_input = None
 
 # Application intialization and thread start
 app = Flask(__name__)
@@ -28,8 +29,11 @@ def index():
 # Fetch new word
 @app.route("/reset_game", methods=["GET"])
 def new_game():
-	global wordle
-	wordle = random.choice(list(wordle_set))
+	global wordle, use_input
+	if use_input: 
+		use_input = False
+	else:
+		wordle = random.choice(list(wordle_set))
 	session.pop("guesses", None) # resets guesses
 	return jsonify({"status": "new", "wordle": wordle})
 
@@ -69,9 +73,10 @@ def main():
 			wordle_set.add(w)
 
 	# Sets wordle if provided
-	global wordle
+	global wordle, use_input
 	if args.wordle:
 		wordle = args.wordle.lower()
+		use_input = True
 		if not is_valid(wordle, max_length):
 			print(f"(E) draft.py -> Must provide word of 5 letters: {word}")
 			return
