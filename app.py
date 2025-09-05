@@ -22,7 +22,7 @@ app.secret_key = os.environ.get("DEV_SECRET_KEY")
 # --- App routing ---
 @app.route("/")
 def index():
-	session.pop("guesses", None)
+	session.pop("guesses", None) # resets guesses
 	return render_template("index.html")
 
 # Fetch new word
@@ -30,6 +30,7 @@ def index():
 def new_game():
 	global wordle
 	wordle = random.choice(list(wordle_set))
+	session.pop("guesses", None) # resets guesses
 	return jsonify({"status": "new", "wordle": wordle})
 
 # Submission
