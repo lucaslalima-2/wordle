@@ -55,7 +55,7 @@ def main():
 	args = parser.parse_args()
 
 	# Loads guesses and wordle_words
-	with open(acceptable_guesses, "r") as d:
+	with open(all_words, "r") as d:
 		for line in d:
 			if line[0] == "#": continue
 			w = line.strip().lower()
