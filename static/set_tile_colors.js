@@ -1,3 +1,7 @@
+const flip_delay = 700;
+const per_tile_delay = 200;
+const tot_flip_delay =  2000;
+
 function setTileColors(colorslist, row){
   const tiles = row.querySelectorAll(".tile");
 
@@ -8,7 +12,7 @@ function setTileColors(colorslist, row){
       setTimeout(() => {
         tile.classList.add(colorslist[i]); // apply color
         tile.classList.remove("flip");
-      }, 700); // setTimeout Duration of flip
-    }, i * 200); // setTimeout Staggered delay between tiles
+      }, flip_delay); // setTimeout Duration of flip
+    }, i * per_tile_delay); // setTimeout Staggered delay between tiles
   }); // foreach
 } // function

@@ -47,23 +47,25 @@ function handle_keydown(event) {
         setKeyboardColors(data["guess"], data["colors"]);
 
         // Checks win or loss
-        if (data["colors"].filter(item => item ==="green").length==5) {
-          // Win
-          let msg = data["wordle"].toUpperCase();
-          msg += "<br><br>You won! Refresh to start a new game!"
-          show_popup(msg, endgame=true);
-          end_game();
-        } else if (current_row==5) {
-          // Lose
-          let msg = data["wordle"].toUpperCase();
-          msg += "<br><br>You lose.<br>Refresh page to start new game!"
-          show_popup(msg, endgame=true);
-          end_game();
-        } else {
-          // Midgame, update pointer
-          current_row++;
-          current_tile = 0;
-        } //if-elif-else
+        setTimeout(() => {
+          if (data["colors"].filter(item => item ==="green").length==5) {
+            // Win
+            let msg = data["wordle"].toUpperCase();
+            msg += "<br><br>You won! Refresh to start a new game!"
+            show_popup(msg, endgame=true);
+            end_game();
+          } else if (current_row==5) {
+            // Lose
+            let msg = data["wordle"].toUpperCase();
+            msg += "<br><br>You lose.<br>Refresh page to start new game!"
+            show_popup(msg, endgame=true);
+            end_game();
+          } else {
+            // Midgame, update pointer
+            current_row++;
+            current_tile = 0;
+          } //if-elif-else
+        }, tot_flip_delay); // setTimeout
       } else {
         // Invalid entry: too short, reused word, unapproved dictionary word
         show_popup(data["msg"]);
