@@ -1,8 +1,9 @@
-# USAGE:
+# SET-UP:
 * git clone <ssh> <target_dir_name>
 * make setup
 * source venv/bin/activate
 
+# USAGE:
 Two ways to play the game
 * python3 app.py -w
   * Allows you to play with a given wordle target
@@ -10,7 +11,6 @@ Two ways to play the game
   * Allows random game play
 
 Any refresh (Ctrl+R) or new game button click (seen at the end of the game) will set a new wordle target.
-
 
 # FUTURE UPDATES:
 * Need for an editor:
