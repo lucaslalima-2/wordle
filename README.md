@@ -5,7 +5,7 @@
 
 # USAGE:
 Two ways to play the game
-* python3 app.py -w
+* python3 app.py -w <wordle_target>
   * Allows you to play with a given wordle target
 * python3 app.py
   * Allows random game play
